@@ -1,0 +1,23 @@
+name: Docker-to-Azure-VM
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  Deploy:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - id: 'deploy'
+        uses: 'bitovi/github-actions-docker-to-azure-vm@DEVOPS-821-null-ip'
+        with:
+          AZURE_ARM_CLIENT_ID: ${{ secrets.AZURE_ARM_CLIENT_ID }}
+          AZURE_ARM_CLIENT_SECRET: ${{ secrets.AZURE_ARM_CLIENT_SECRET }}
+          AZURE_ARM_TENANT_ID: ${{ secrets.AZURE_ARM_TENANT_ID }}
+          AZURE_ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_ARM_SUBSCRIPTION_ID }}
+          azure_resource_identifier: 'bitovi-test-rg'
+          AZURE_STORAGE_ACCOUNT: 'bitopsdemo'
+          tf_state_bucket: 'bitovi-test-action-bucket'
+          stack_destroy: 'false'
+
+          # TODO: add all available params as comments
+  

@@ -3,9 +3,14 @@ on:
   push:
     branches: [ main ]
 
+
+
 jobs:
   Deploy:
     runs-on: 'ubuntu-latest'
+    environment:
+      name: ${{ github.ref_name }}
+      url: ${{ steps.deploy.outputs.vm_url }}
     steps:
       - id: 'deploy'
         uses: 'bitovi/github-actions-docker-to-azure-vm@v1.0.1'
@@ -17,7 +22,8 @@ jobs:
           azure_resource_identifier: 'bitovi-test-rg'
           AZURE_STORAGE_ACCOUNT: 'bitopsdemo'
           tf_state_bucket: 'bitovi-test-action-bucket'
-          stack_destroy: 'true' 
+          stack_destroy: 'false' 
 
           # TODO: add all available params as comments
   
+ 

@@ -8,7 +8,7 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - id: 'deploy'
-        uses: 'bitovi/github-actions-docker-to-azure-vm@DEVOPS-821-null-ip'
+        uses: 'bitovi/github-actions-docker-to-azure-vm@v1.0.1'
         with:
           AZURE_ARM_CLIENT_ID: ${{ secrets.AZURE_ARM_CLIENT_ID }}
           AZURE_ARM_CLIENT_SECRET: ${{ secrets.AZURE_ARM_CLIENT_SECRET }}

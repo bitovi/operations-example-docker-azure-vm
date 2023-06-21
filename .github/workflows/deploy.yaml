@@ -17,7 +17,7 @@ jobs:
           azure_resource_identifier: 'bitovi-test-rg'
           AZURE_STORAGE_ACCOUNT: 'bitopsdemo'
           tf_state_bucket: 'bitovi-test-action-bucket'
-          stack_destroy: 'false'
+          stack_destroy: 'false' 
 
           # TODO: add all available params as comments
   
